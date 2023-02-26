@@ -9,6 +9,7 @@
 body {
     font-size: var(--fontsize);
     font-family: var(--fuenteprincipal);
+
 }
 
 :root {
@@ -24,12 +25,17 @@ header {
 
     background-color: darkcyan;
     color: white;
-    padding-bottom: 0.25em;
+    padding-bottom: 0.5em;
+}
+
+main {
+    margin: var(--margingrid);
 }
 
 .container {
     max-width: var(--anchomaximo);
-    margin: 0 auto;
+    margin: 20px auto;
+
 }
 
 h1 {
@@ -55,6 +61,16 @@ main article {
     padding: 0.5em;
 }
 
+main article.urgente {
+    border: 2px solid red;
+
+}
+
+main article.diario {
+    border: 2px solid lightblue;
+
+}
+
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -69,9 +85,11 @@ main article h3 {
 
 
 
+
 main article div {
     width: 5%;
 }
+
 
 main article div button {
     width: 25px;
