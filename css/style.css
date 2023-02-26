@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--fontsize);
+    font-family: var(--fuenteprincipal);
+}
+
+:root {
+    --fuenteprincipal: 'Montserrat', sans-serif;
+    --fuentetitulos: 'Handlee', cursive;
+    --margingrid: 1em;
+    --fontsize: 1em;
+    --anchomaximo: 1004px;
+}
+
+
+header {
+
+    background-color: darkcyan;
+    color: white;
+    padding-bottom: 0.25em;
+}
+
+.container {
+    max-width: var(--anchomaximo);
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: var(--fuentetitulos);
+    padding-top: 0.5em;
+}
+
+
+header hr {
+    margin: 0.5em;
+}
+
+/*inicio de main*/
+main article {
+    width: 100%;
+    text-align: left;
+    border: 2px solid black;
+    border-color: silver;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0.5em;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+}
+
+main article h3 {
+    width: calc(95% - 10px);
+
+}
+
+
+
+main article div {
+    width: 5%;
+}
+
+main article div button {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input,
+select {
+    padding: 5px;
+
+}
+
+@media(min-width: 768px) {
+    main .flex article {
+        width: calc(50% - 10px);
+    }
+
+    main article h3 {
+        width: calc(90% - 10px);
+
+    }
+
+
+}
+
+@media(min-width: 1004px) {
+    main .flex article {
+        width: calc(33.33% - 10px);
+    }
+
+    main article h3 {
+        width: calc(90% - 10px);
+
+    }
+}
