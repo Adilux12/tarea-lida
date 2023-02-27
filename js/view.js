@@ -4,6 +4,7 @@ console.log(sectionTask);
 
 
 function printAllTasks(pListTask, pSectionTask) {
+    pSectionTask.innerHTML = "";
     pListTask.forEach(task => printOneTask(task, sectionTask));
 }
 
@@ -39,3 +40,18 @@ function printOneTask(pTask, pSectionTask) {
 
 
 printAllTasks(listaTareas, sectionTask);
+//filtrar por prioridad  de tarea
+//captura los elementos que necesita
+
+const selectPriority = document.querySelector('#prioridad')
+console.log(selectPriority);
+selectPriority.addEventListener('change', getPriority)
+
+function getPriority(event) {
+    console.log(event.target.value)
+    let priority = event.target.value;
+    let ListPriority = filterByPriority(listaTareas, priority)
+    console.log(ListPriority);
+    printAllTasks(ListPriority, sectionTask);
+}
+

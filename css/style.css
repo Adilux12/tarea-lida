@@ -21,6 +21,12 @@ body {
 }
 
 
+.container {
+    max-width: var(--anchomaximo);
+    margin: 20px auto;
+
+}
+
 header {
 
     background-color: darkcyan;
@@ -28,14 +34,10 @@ header {
     padding-bottom: 0.5em;
 }
 
-main {
-    margin: var(--margingrid);
-}
-
-.container {
-    max-width: var(--anchomaximo);
-    margin: 20px auto;
-
+header .container div {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--margingrid) 0;
 }
 
 h1 {
@@ -59,6 +61,10 @@ main article {
     flex-wrap: wrap;
     gap: 10px;
     padding: 0.5em;
+}
+
+main {
+    margin: var(--margingrid);
 }
 
 main article.urgente {
