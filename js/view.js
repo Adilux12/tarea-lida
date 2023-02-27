@@ -48,10 +48,25 @@ console.log(selectPriority);
 selectPriority.addEventListener('change', getPriority)
 
 function getPriority(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     let priority = event.target.value;
     let ListPriority = filterByPriority(listaTareas, priority)
-    console.log(ListPriority);
+    //console.log(ListPriority);
     printAllTasks(ListPriority, sectionTask);
 }
+
+//Pintar la busqueda por busqueda
+
+const inputName = document.querySelector('#name')
+console.log(inputName)
+inputName.addEventListener('input', getSearchName);
+
+function getSearchName(event) {
+    console.log(event.target.value);
+    let letter = event.target.value;
+    const listSearch = searchByName(listaTareas, letter)
+    printAllTasks(listSearch, sectionTask);
+}
+
+
 
