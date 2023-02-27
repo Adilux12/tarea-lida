@@ -62,13 +62,17 @@ main article {
 }
 
 main article.urgente {
-    border: 2px solid red;
+    background-color: firebrick;
 
 }
 
 main article.diario {
-    border: 2px solid lightblue;
+    background-color: lightblue;
 
+}
+
+main article.mensual {
+    background-color: lawngreen;
 }
 
 .flex {

@@ -8,7 +8,7 @@ const listaTareas = new Array(
     {
         idTarea: 2,
         titulo: 'Dormir',
-        prioridad: 'diaria'
+        prioridad: 'diario'
     },
     {
         idTarea: 3,

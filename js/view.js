@@ -27,7 +27,7 @@ function printOneTask(pTask, pSectionTask) {
     const div = document.createElement('div');
     const button = document.createElement('button');
     button.textContent = 'x';
-    article.classList.add('urgente')
+    article.classList.add(`${pTask.prioridad}`)
 
 
     article.appendChild(h3);
