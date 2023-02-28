@@ -44,7 +44,6 @@ printAllTasks(listaTareas, sectionTask);
 //captura los elementos que necesita
 
 const selectPriority = document.querySelector('#prioridad')
-console.log(selectPriority);
 selectPriority.addEventListener('change', getPriority)
 
 function getPriority(event) {
@@ -58,7 +57,6 @@ function getPriority(event) {
 //Pintar la busqueda por busqueda
 
 const inputName = document.querySelector('#name')
-console.log(inputName)
 inputName.addEventListener('input', getSearchName);
 
 function getSearchName(event) {
@@ -68,5 +66,39 @@ function getSearchName(event) {
     printAllTasks(listSearch, sectionTask);
 }
 
+//Crear nuevo tarea 
 
+
+const taskForm = document.querySelector('#formtask')
+
+taskForm.addEventListener('submit', getDataTask);
+
+function getDataTask(event) {
+    event.preventDefault();
+
+    if (event.target.prioridad.value !== '' && event.target.title.value !== '') {
+        const newTask = {
+            titulo: event.target.title.value,
+            prioridad: event.target.prioridad.value,
+        }
+        if (event.target.prioridad.value === 'urgente' || event.target.prioridad.value === 'diario' || event.target.prioridad.value === 'mensual') {
+            let result = addTask(listaTareas, newTask)
+            console.log(result)
+
+            if (result.status) {
+                event.target.reset();
+                printOneTask(newTask, sectionTask)
+
+            } else {
+                event.target.reset();
+                alert(result.msg);
+            }
+        } else {
+            alert('Introduce la prioridad correcta: mensual, diario o urgente')
+
+        }
+    } else {
+        alert('El tarea no puede ser vacio');
+    }
+}
 
