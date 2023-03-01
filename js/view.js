@@ -8,6 +8,21 @@ function printAllTasks(pListTask, pSectionTask) {
     pListTask.forEach(task => printOneTask(task, sectionTask));
 }
 
+//boton de borrar
+function deleteTaskButton(event) {
+    console.log(event.target.dataset.id);
+    let idDelete = parseInt(event.target.dataset.id);
+    let result = deleteTask(listaTareas, idDelete);
+    console.log(result)
+    if (result.status) {
+
+        let removeTask = event.target.parentNode.parentNode;
+        console.log(removeTask)
+        removeTask.parentNode.removeChild(removeTask);
+    }
+}
+
+
 function printOneTask(pTask, pSectionTask) {
     /**       < article >
                         <h3>Titulo de tarea </h3>
@@ -28,6 +43,8 @@ function printOneTask(pTask, pSectionTask) {
     const div = document.createElement('div');
     const button = document.createElement('button');
     button.textContent = 'x';
+    button.dataset.id = pTask.idTarea;
+    button.addEventListener('click', deleteTaskButton);
     article.classList.add(`${pTask.prioridad}`)
 
 

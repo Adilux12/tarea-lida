@@ -19,3 +19,13 @@ function addTask(pListTask, pTask) {
     } else
         return { status: false, msg: "Tarea Duplicado" }
 }
+
+function deleteTask(pListTask, pId) {
+    let position = pListTask.findIndex(task => task.idTarea === pId);
+
+    if (position !== -1) {
+        pListTask.splice(position, 1)
+        return { status: true, msg: 'Tarea Borrado' }
+    }
+    return { status: false, msg: 'No existe el tarea de borrar' }
+}
