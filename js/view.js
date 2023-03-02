@@ -119,3 +119,12 @@ function getDataTask(event) {
     }
 }
 
+function init() {
+    if (localStorage.getItem('tarea') === 0) {
+        localStorage.setItem('tarea', JSON.stringify(listaTareas))
+    }
+    printAllTasks(listaTareas, sectionTask)
+}
+
+
+

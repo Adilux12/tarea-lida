@@ -28,8 +28,8 @@ body {
 .container {
 
     background-color: darkcyan;
-    padding: 5px;
     width: 100%;
+    padding: 10px;
 
 }
 
@@ -127,8 +127,10 @@ main article div button {
 input,
 select {
     padding: 5px;
+    margin: 5px;
 
 }
+
 
 @media(min-width: 768px) {
     main .flex article {
