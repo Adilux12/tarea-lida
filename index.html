@@ -12,38 +12,38 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <header>
 
-    <header>
+            <div class="container">
+                <h1>Gestor De Tarea</h1>
+                <hr>
+                <form id="formtask">
+                    <input type="text" name="title" placeholder="Introduce el tarea">
+                    <input type="text" name="prioridad" placeholder="Prioridad: urgente, diario y mensual">
+                    <input type="submit" value="Guardar">
+                    <!-- <input type="checkbox" name="jj"> -->
+                </form>
+                <hr>
+                <div>
 
-        <div class="container">
-            <h1>Tarea</h1>
-            <hr>
-            <form id="formtask">
-                <input type="text" name="title" placeholder="Introduce el tarea">
-                <input type="text" name="prioridad" placeholder="Prioridad: urgente, diario y mensual">
-                <input type="submit" value="Guardar">
-                <!-- <input type="checkbox" name="jj"> -->
-            </form>
-            <hr>
-            <div>
-
-                <input type="type" name="name" id="name" placeholder="Introduce el nombre">
-                <select id="prioridad">
-                    <option value="">Seleccionar la prioridad</option>
-                    <option value="urgente">Urgente</option>
-                    <option value="mensual">Mensual</option>
-                    <option value="diario">Diario</option>
-                </select>
+                    <input type="type" name="name" id="name" placeholder="Introduce el nombre">
+                    <select id="prioridad">
+                        <option value="">Seleccionar la prioridad</option>
+                        <option value="urgente">Urgente</option>
+                        <option value="mensual">Mensual</option>
+                        <option value="diario">Diario</option>
+                    </select>
 
 
+                </div>
             </div>
-        </div>
-    </header>
-    <main>
-        <div class="container">
-            <section>
-                <div class="flex">
-                    <!--        <article>
+        </header>
+        <main>
+            <div class="container">
+                <section>
+                    <div class="flex">
+                        <!--        <article>
                         <h3>Titulo de tarea </h3>
                         <div>
                             <button>x</button>
@@ -56,11 +56,11 @@
                         </div>
                     </article>-->
 
-                </div>
-            </section>
-        </div>
-    </main>
-    <footer></footer>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
     <script src="./js/view.js"></script>
 </body>
 

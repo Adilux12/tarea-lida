@@ -9,7 +9,7 @@
 body {
     font-size: var(--fontsize);
     font-family: var(--fuenteprincipal);
-
+    background: linear-gradient(#e092a0, #c7e422);
 }
 
 :root {
@@ -17,13 +17,25 @@ body {
     --fuentetitulos: 'Handlee', cursive;
     --margingrid: 1em;
     --fontsize: 1em;
-    --anchomaximo: 1004px;
+    --anchomaximo: 800px;
 }
 
+.wrapper {
+    max-width: var(--anchomaximo);
+    margin: 0 auto;
+}
 
 .container {
-    max-width: var(--anchomaximo);
-    margin: 20px auto;
+
+    background-color: darkcyan;
+    padding: 5px;
+    width: 100%;
+
+}
+
+header div.container {
+    width: 100%;
+    margin: 0 auto;
 
 }
 
@@ -32,6 +44,7 @@ header {
     background-color: darkcyan;
     color: white;
     padding-bottom: 0.5em;
+
 }
 
 header .container div {
@@ -66,8 +79,8 @@ main article {
     padding: 0.5em;
 }
 
-main {
-    margin: var(--margingrid);
+main .container {
+    margin: 0 auto;
 }
 
 main article.urgente {
