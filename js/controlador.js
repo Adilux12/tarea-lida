@@ -1,5 +1,9 @@
 function filterByPriority(pListTask, pPrioridad) {
-    return pListTask.filter(task => task.prioridad.includes(pPrioridad));
+
+    let posicion = pListTask.filter(task => task.prioridad.includes(pPrioridad));
+    const tareas = localStorage.setItem('tarea', JSON.stringify(posicion));
+    console.log(tareas);
+    return posicion;
 }
 
 function searchByName(pListTask, pLetter) {
@@ -7,13 +11,16 @@ function searchByName(pListTask, pLetter) {
 }
 
 function addTask(pListTask, pTask) {
+
     let existe = pListTask.some(task => task.titulo === pTask.titulo);
     if (!existe) {
 
         pTask.idTarea = idTarea;
         pListTask.push(pTask);
         idTarea++;
-        console.log(pListTask)
+        // console.log(pListTask)
+        let tareas = localStorage.setItem('tarea', JSON.stringify(pTask));
+        console.log(tareas);
         return { status: true, msg: "" }
 
     } else
@@ -21,6 +28,8 @@ function addTask(pListTask, pTask) {
 }
 
 function deleteTask(pListTask, pId) {
+
+
     let position = pListTask.findIndex(task => task.idTarea === pId);
 
     if (position !== -1) {

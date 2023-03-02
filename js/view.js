@@ -2,10 +2,16 @@
 const sectionTask = document.querySelector('section .flex');
 console.log(sectionTask);
 
+const tareas = JSON.parse(localStorage.getItem('tarea'))
+console.log(tareas);
 
 function printAllTasks(pListTask, pSectionTask) {
     pSectionTask.innerHTML = "";
-    pListTask.forEach(task => printOneTask(task, sectionTask));
+    if (pListTask.length !== 0) {
+        pListTask.forEach(task => printOneTask(task, sectionTask));
+    } else {
+        pSectionTask.innerHTML = '<h2>NO HAY TAREAS</h2>'
+    }
 }
 
 //boton de borrar
@@ -14,6 +20,7 @@ function deleteTaskButton(event) {
     let idDelete = parseInt(event.target.dataset.id);
     let result = deleteTask(listaTareas, idDelete);
     console.log(result)
+
     if (result.status) {
 
         let removeTask = event.target.parentNode.parentNode;
@@ -68,6 +75,8 @@ function getPriority(event) {
     let priority = event.target.value;
     let ListPriority = filterByPriority(listaTareas, priority)
     //console.log(ListPriority);
+    let tareas = JSON.parse(localStorage.getItem('tarea'));
+    console.log(tareas);
     printAllTasks(ListPriority, sectionTask);
 }
 
@@ -79,7 +88,9 @@ inputName.addEventListener('input', getSearchName);
 function getSearchName(event) {
     console.log(event.target.value);
     let letter = event.target.value;
-    const listSearch = searchByName(listaTareas, letter)
+    const listSearch = searchByName(listaTareas, letter);
+    let tareas = JSON.parse(localStorage.getItem('tarea'));
+    console.log(tareas);
     printAllTasks(listSearch, sectionTask);
 }
 
@@ -104,6 +115,9 @@ function getDataTask(event) {
 
             if (result.status) {
                 event.target.reset();
+                let tareas = JSON.parse(localStorage.getItem('tarea'));
+                console.log(tareas);
+                console.log(newTask);
                 printOneTask(newTask, sectionTask)
 
             } else {
@@ -127,4 +141,4 @@ function init() {
 }
 
 
-
+init();
