@@ -119,6 +119,7 @@ function getDataTask(event) {
             if (result.status) {
                 event.target.reset();
                 let tareas = JSON.parse(localStorage.getItem('task'));
+                console.log(tareas);
                 printOneTask(tareas, sectionTask)
 
             } else {
