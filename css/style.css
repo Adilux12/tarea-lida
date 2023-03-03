@@ -23,11 +23,11 @@ body {
 .wrapper {
     max-width: var(--anchomaximo);
     margin: 0 auto;
+    background-color: darkcyan;
 }
 
 .container {
 
-    background-color: darkcyan;
     width: 100%;
     padding: 10px;
 
@@ -40,8 +40,6 @@ header div.container {
 }
 
 header {
-
-    background-color: darkcyan;
     color: white;
     padding-bottom: 0.5em;
 
@@ -142,6 +140,10 @@ select {
 
     }
 
+    .wrapper {
+        transform: translateY(50%);
+    }
+
 
 }
 
@@ -153,5 +155,9 @@ select {
     main article h3 {
         width: calc(90% - 10px);
 
+    }
+
+    .wrapper {
+        transform: translateY(50%);
     }
 }

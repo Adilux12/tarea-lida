@@ -1,13 +1,16 @@
 function filterByPriority(pListTask, pPrioridad) {
 
     let posicion = pListTask.filter(task => task.prioridad.includes(pPrioridad));
-    const tareas = localStorage.setItem('tarea', JSON.stringify(posicion));
+    const tareas = localStorage.setItem('task', JSON.stringify(posicion));
     console.log(tareas);
     return posicion;
 }
 
 function searchByName(pListTask, pLetter) {
-    return pListTask.filter(task => task.titulo.toLowerCase().includes(pLetter.toLowerCase()))
+    let search = pListTask.filter(task => task.titulo.toLowerCase().includes(pLetter.toLowerCase()));
+    const tareas = localStorage.setItem('task', JSON.stringify(search));
+    console.log(tareas);
+    return search;
 }
 
 function addTask(pListTask, pTask) {
@@ -19,7 +22,7 @@ function addTask(pListTask, pTask) {
         pListTask.push(pTask);
         idTarea++;
         // console.log(pListTask)
-        let tareas = localStorage.setItem('tarea', JSON.stringify(pTask));
+        let tareas = localStorage.setItem('task', JSON.stringify(pTask));
         console.log(tareas);
         return { status: true, msg: "" }
 
@@ -31,10 +34,13 @@ function deleteTask(pListTask, pId) {
 
 
     let position = pListTask.findIndex(task => task.idTarea === pId);
-
+    console.log(position)
     if (position !== -1) {
         pListTask.splice(position, 1)
+        let tareas = localStorage.setItem('task', JSON.stringify(pListTask));
+        console.log(tareas);
         return { status: true, msg: 'Tarea Borrado' }
+
     }
-    return { status: false, msg: 'No existe el tarea de borrar' }
+    return { status: false, msg: 'No existe el task de borrar' }
 }

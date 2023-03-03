@@ -1,12 +1,13 @@
-//captura pantalla de la secctiom pintar tarea
+//captura pantalla de la secctiom pintar task
 const sectionTask = document.querySelector('section .flex');
 console.log(sectionTask);
 
-const tareas = JSON.parse(localStorage.getItem('tarea'))
-console.log(tareas);
+
 
 function printAllTasks(pListTask, pSectionTask) {
     pSectionTask.innerHTML = "";
+    const tareas = JSON.parse(localStorage.getItem('task'))
+    console.log(tareas);
     if (pListTask.length !== 0) {
         pListTask.forEach(task => printOneTask(task, sectionTask));
     } else {
@@ -19,7 +20,9 @@ function deleteTaskButton(event) {
     console.log(event.target.dataset.id);
     let idDelete = parseInt(event.target.dataset.id);
     let result = deleteTask(listaTareas, idDelete);
-    console.log(result)
+
+    let tareas = JSON.parse(localStorage.getItem('task'));
+    console.log(tareas)
 
     if (result.status) {
 
@@ -32,13 +35,13 @@ function deleteTaskButton(event) {
 
 function printOneTask(pTask, pSectionTask) {
     /**       < article >
-                        <h3>Titulo de tarea </h3>
+                        <h3>Titulo de task </h3>
                         <div>
                             <button>x</button>
                         </div>
                     </article >
         <article>
-            <h3>Titulo de tarea </h3>
+            <h3>Titulo de task </h3>
             <div>
                 <button>x</button>
             </div>
@@ -64,7 +67,7 @@ function printOneTask(pTask, pSectionTask) {
 
 
 printAllTasks(listaTareas, sectionTask);
-//filtrar por prioridad  de tarea
+//filtrar por prioridad  de task
 //captura los elementos que necesita
 
 const selectPriority = document.querySelector('#prioridad')
@@ -75,7 +78,7 @@ function getPriority(event) {
     let priority = event.target.value;
     let ListPriority = filterByPriority(listaTareas, priority)
     //console.log(ListPriority);
-    let tareas = JSON.parse(localStorage.getItem('tarea'));
+    let tareas = JSON.parse(localStorage.getItem('task'));
     console.log(tareas);
     printAllTasks(ListPriority, sectionTask);
 }
@@ -89,12 +92,12 @@ function getSearchName(event) {
     console.log(event.target.value);
     let letter = event.target.value;
     const listSearch = searchByName(listaTareas, letter);
-    let tareas = JSON.parse(localStorage.getItem('tarea'));
+    let tareas = JSON.parse(localStorage.getItem('task'));
     console.log(tareas);
-    printAllTasks(listSearch, sectionTask);
+    printAllTasks(tareas, sectionTask);
 }
 
-//Crear nuevo tarea 
+//Crear nuevo task 
 
 
 const taskForm = document.querySelector('#formtask')
@@ -115,10 +118,8 @@ function getDataTask(event) {
 
             if (result.status) {
                 event.target.reset();
-                let tareas = JSON.parse(localStorage.getItem('tarea'));
-                console.log(tareas);
-                console.log(newTask);
-                printOneTask(newTask, sectionTask)
+                let tareas = JSON.parse(localStorage.getItem('task'));
+                printOneTask(tareas, sectionTask)
 
             } else {
                 event.target.reset();
@@ -134,8 +135,8 @@ function getDataTask(event) {
 }
 
 function init() {
-    if (localStorage.getItem('tarea') === 0) {
-        localStorage.setItem('tarea', JSON.stringify(listaTareas))
+    if (localStorage.getItem('task') === 0) {
+        localStorage.setItem('task', JSON.stringify(listaTareas))
     }
     printAllTasks(listaTareas, sectionTask)
 }
