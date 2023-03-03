@@ -9,6 +9,7 @@
 body {
     font-size: var(--fontsize);
     font-family: var(--fuenteprincipal);
+    background: linear-gradient(#e092a0, #c7e422);
 }
 
 :root {
@@ -16,20 +17,38 @@ body {
     --fuentetitulos: 'Handlee', cursive;
     --margingrid: 1em;
     --fontsize: 1em;
-    --anchomaximo: 1004px;
+    --anchomaximo: 800px;
 }
 
-
-header {
-
+.wrapper {
+    max-width: var(--anchomaximo);
+    margin: 0 auto;
     background-color: darkcyan;
-    color: white;
-    padding-bottom: 0.25em;
 }
 
 .container {
-    max-width: var(--anchomaximo);
+
+    width: 100%;
+    padding: 10px;
+
+}
+
+header div.container {
+    width: 100%;
     margin: 0 auto;
+
+}
+
+header {
+    color: white;
+    padding-bottom: 0.5em;
+
+}
+
+header .container div {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--margingrid) 0;
 }
 
 h1 {
@@ -38,6 +57,9 @@ h1 {
     padding-top: 0.5em;
 }
 
+header form input:nth-child(2) {
+    width: 250px;
+}
 
 header hr {
     margin: 0.5em;
@@ -55,6 +77,24 @@ main article {
     padding: 0.5em;
 }
 
+main .container {
+    margin: 0 auto;
+}
+
+main article.urgente {
+    background-color: firebrick;
+
+}
+
+main article.diario {
+    background-color: lightblue;
+
+}
+
+main article.mensual {
+    background-color: lawngreen;
+}
+
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -69,9 +109,11 @@ main article h3 {
 
 
 
+
 main article div {
     width: 5%;
 }
+
 
 main article div button {
     width: 25px;
@@ -83,8 +125,10 @@ main article div button {
 input,
 select {
     padding: 5px;
+    margin: 5px;
 
 }
+
 
 @media(min-width: 768px) {
     main .flex article {
@@ -94,6 +138,10 @@ select {
     main article h3 {
         width: calc(90% - 10px);
 
+    }
+
+    .wrapper {
+        transform: translateY(50%);
     }
 
 
@@ -107,5 +155,9 @@ select {
     main article h3 {
         width: calc(90% - 10px);
 
+    }
+
+    .wrapper {
+        transform: translateY(50%);
     }
 }
